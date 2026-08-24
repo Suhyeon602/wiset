@@ -1,0 +1,2 @@
+tag,n_samples,lat_mean_ms,lat_median_ms,lat_p95_ms,lat_p99_ms,lat_std_ms,throughput_sps,trainable_params,total_params,trainable_pct,peak_mem_MB
+adalora_rank4,1698,1030.6677,1018.0732,1124.165,1144.8416,31.9934,0.97,15054372,6753470180,0.2229,25962.842
