@@ -1,19 +1,0 @@
-nohup: ignoring input
-Namespace(adapt=True, test=True, plm_type='llama', plm_size='base', model_path=None, device='cuda:0', device_out='cuda:0', device_mid=None, freeze_plm=False, compile=False, resume=False, train_dataset='Jin2022', test_dataset='Jin2022', his_window=10, fut_window=20, trim_head=30, trim_tail=60, dataset_frequency=5, sample_step=15, epochs=4, epochs_per_valid=None, steps_per_valid=500, report_loss_per_steps=100, lr=0.0005, weight_decay=0.0001, bs=1, grad_accum_steps=32, seed=1, using_multimodal=False, save_checkpoint_per_epoch=None, save_checkpoint_per_step=None, rank=4, resume_path=None, scheduled_sampling=True, mix_rate=0.04)
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:23<00:23, 23.88s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:25<00:25, 25.59s/it]
-Traceback (most recent call last):
-  File "/workspace/shapley/viewport_prediction/run_plm.py", line 412, in <module>
-    run(args)
-  File "/workspace/shapley/viewport_prediction/run_plm.py", line 245, in run
-    plm, tokenizer, _ = load_plm(args.plm_type, os.path.join(cfg.plms_dir, args.plm_type, args.plm_size), plm_size=args.plm_size, 
-  File "/workspace/shapley/viewport_prediction/utils/plms_utils.py", line 158, in load_plm
-    model = model_class.model.from_pretrained(model_path, config=model_config, device_map=device_map)
-  File "/opt/conda/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3677, in from_pretrained
-    ) = cls._load_pretrained_model(
-  File "/opt/conda/lib/python3.10/site-packages/transformers/modeling_utils.py", line 4104, in _load_pretrained_model
-    new_error_msgs, offload_index, state_dict_index = _load_state_dict_into_meta_model(
-  File "/opt/conda/lib/python3.10/site-packages/transformers/modeling_utils.py", line 886, in _load_state_dict_into_meta_model
-    set_module_tensor_to_device(model, param_name, param_device, **set_module_kwargs)
-  File "/opt/conda/lib/python3.10/site-packages/accelerate/utils/modeling.py", line 353, in set_module_tensor_to_device
-    new_value = value.to(device, non_blocking=non_blocking)
-torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 64.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 101.62 MiB is free. Process 4881 has 0 bytes memory in use. Including non-PyTorch memory, this process has 0 bytes memory in use. Of the allocated memory 20.45 GiB is allocated by PyTorch, and 17.19 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
