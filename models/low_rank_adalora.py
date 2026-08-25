@@ -4,7 +4,7 @@ import torch.nn as nn
 
 
 TARGET_MODULES = {
-    'llama': ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj"],
+    'llama': ["q_proj", "v_proj"],
     'mistral': ["q_proj", "k_proj", "v_proj", "o_proj"],
     'opt': None,
     'gpt2': ["c_attn", "c_proj", "c_fc"],
